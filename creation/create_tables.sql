@@ -9,26 +9,26 @@
 
 CREATE TABLE continent (
 
-    continentID    SERIAL       PRIMARY KEY,
-    continentName  VARCHAR(255) NOT NULL
+    continentID   SERIAL       PRIMARY KEY,
+    continentName VARCHAR(255) NOT NULL
 
 );
 
 CREATE TABLE country (
 
-    countryID      SERIAL       PRIMARY KEY,
-    continentID    INTEGER      REFERENCES continent (continentID),
+    countryID   SERIAL       PRIMARY KEY,
+    continentID INTEGER      REFERENCES continent (continentID),
 
-    countryName    VARCHAR(255) NOT NULL
+    countryName VARCHAR(255) NOT NULL
 
 );
 
 CREATE TABLE region (
 
-    regionID       SERIAL  PRIMARY KEY,
-    countryID      INTEGER REFERENCES country (countryID),
+    regionID   SERIAL       PRIMARY KEY,
+    countryID  INTEGER      REFERENCES country (countryID),
 
-    regionName     VARCHAR(255) NOT NULL
+    regionName VARCHAR(255) NOT NULL
 
 );
 
@@ -37,7 +37,7 @@ CREATE TABLE region (
 
 CREATE TABLE metric_type (
 
-    metricTypeID   SERIAL PRIMARY KEY,
+    metricTypeID   SERIAL       PRIMARY KEY,
 
     metricTypeName VARCHAR(255) NOT NULL,
     metricTypeDesc VARCHAR(255)
@@ -46,11 +46,11 @@ CREATE TABLE metric_type (
 
 CREATE TABLE metric (
 
-    metricID       SERIAL PRIMARY KEY,
-    metricTypeID   INTEGER REFERENCES metric_type (metricTypeID),
+    metricID     SERIAL       PRIMARY KEY,
+    metricTypeID INTEGER      REFERENCES metric_type (metricTypeID),
 
-    metricName     VARCHAR(255) NOT NULL,
-    metricDesc     VARCHAR(255)
+    metricName   VARCHAR(255) NOT NULL,
+    metricDesc   VARCHAR(255)
 
 );
 
@@ -59,21 +59,21 @@ CREATE TABLE metric (
 
 CREATE TABLE eye_bank (
 
-    eyeBankID      SERIAL PRIMARY KEY,
-    regionID       INTEGER REFERENCES region (regionID),
+    eyeBankID        SERIAL       PRIMARY KEY,
+    regionID         INTEGER      REFERENCES region (regionID),
 
-    eyeBankName    VARCHAR(255) NOT NULL,
-    eyeBankDesc    VARCHAR(255)
+    eyeBankShortName VARCHAR(255) NOT NULL,
+    eyeBankFullName  VARCHAR(255)
 
 );
 
 CREATE TABLE pam (
 
-    pamID          SERIAL PRIMARY KEY,
+    pamID    SERIAL       PRIMARY KEY,
 
-    pamFName       VARCHAR(255) NOT NULL,
-    pamLName       VARCHAR(255) NOT NULL,
-    pamEmail       VARCHAR(255) NOT NULL
+    pamFName VARCHAR(255) NOT NULL,
+    pamLName VARCHAR(255) NOT NULL,
+    pamEmail VARCHAR(255) NOT NULL
 
 );
 
@@ -82,23 +82,23 @@ CREATE TABLE pam (
 
 CREATE TABLE pam_region (
 
-    pamRegionID    SERIAL PRIMARY KEY,
-    pamID          INTEGER REFERENCES pam (pamID),
-    regionID       INTEGER REFERENCES region (regionID),
+    pamRegionID SERIAL  PRIMARY KEY,
+    pamID       INTEGER REFERENCES pam (pamID),
+    regionID    INTEGER REFERENCES region (regionID),
 
-    startDate      DATE NOT NULL DEFAULT CURRENT_DATE,
-    endDate        DATE
+    startDate   DATE    NOT NULL DEFAULT CURRENT_DATE,
+    endDate     DATE
 
 );
 
 CREATE TABLE eyebank_metric (
 
-    eyeBankMetricID SERIAL PRIMARY KEY,
-    eyeBankID       INTEGER REFERENCES eye_bank (eyeBankID),
-    metricID        INTEGER REFERENCES metric (metricID),
+    eyeBankMetricID SERIAL   PRIMARY KEY,
+    eyeBankID       INTEGER  REFERENCES eye_bank (eyeBankID),
+    metricID        INTEGER  REFERENCES metric (metricID),
 
     measure         NUMERIC,
-    startDate       DATE NOT NULL,
-    endDate         DATE NOT NULL
+    startDate       DATE     NOT NULL,
+    endDate         DATE     NOT NULL
 
 );
