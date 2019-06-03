@@ -1,12 +1,10 @@
-INSERT INTO continent(continentName)
+INSERT INTO partner_group(partnerGroupName)
 VALUES
-    ('Asia'),
-    ('Africa'),
-    ('North America'),
-    ('South America'),
-    ('Antarctica'),
-    ('Europe'),
-    ('Oceania');
+    ('Greater China'),
+    ('India'),
+    ('Greater Asia'),
+    ('Latin America'),
+    ('Africa');
 
 
 INSERT INTO country(continentID, countryName)
