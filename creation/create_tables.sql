@@ -7,19 +7,19 @@
 
 -- Location tables
 
-CREATE TABLE continent (
+CREATE TABLE partner_group (
 
-    continentID   SERIAL       PRIMARY KEY,
-    continentName VARCHAR(255) NOT NULL
+    partnerGroupID   SERIAL       PRIMARY KEY,
+    partnerGroupName VARCHAR(255) NOT NULL
 
 );
 
 CREATE TABLE country (
 
-    countryID   SERIAL       PRIMARY KEY,
-    continentID INTEGER      REFERENCES continent (continentID),
+    countryID      SERIAL       PRIMARY KEY,
+    partnerGroupID INTEGER      REFERENCES partner_group (partnerGroupID),
 
-    countryName VARCHAR(255) NOT NULL
+    countryName    VARCHAR(255) NOT NULL
 
 );
 
