@@ -67,29 +67,8 @@ CREATE TABLE eye_bank (
 
 );
 
-CREATE TABLE pam (
-
-    pamID    SERIAL       PRIMARY KEY,
-
-    pamFName VARCHAR(255) NOT NULL,
-    pamLName VARCHAR(255) NOT NULL,
-    pamEmail VARCHAR(255) NOT NULL
-
-);
-
 
 -- Relationship tables
-
-CREATE TABLE pam_region (
-
-    pamRegionID SERIAL  PRIMARY KEY,
-    pamID       INTEGER REFERENCES pam (pamID),
-    regionID    INTEGER REFERENCES region (regionID),
-
-    startDate   DATE    NOT NULL DEFAULT CURRENT_DATE,
-    endDate     DATE
-
-);
 
 CREATE TABLE eyebank_metric (
 
