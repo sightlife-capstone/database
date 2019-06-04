@@ -23,15 +23,6 @@ CREATE TABLE country (
 
 );
 
-CREATE TABLE region (
-
-    regionID   SERIAL       PRIMARY KEY,
-    countryID  INTEGER      REFERENCES country (countryID),
-
-    regionName VARCHAR(255) NOT NULL
-
-);
-
 
 -- Metric tables
 
@@ -60,7 +51,7 @@ CREATE TABLE metric (
 CREATE TABLE eye_bank (
 
     eyeBankID        SERIAL       PRIMARY KEY,
-    regionID         INTEGER      REFERENCES region (regionID),
+    countryID        INTEGER      REFERENCES country (countryID),
 
     eyeBankShortName VARCHAR(255) NOT NULL,
     eyeBankFullName  VARCHAR(255)
