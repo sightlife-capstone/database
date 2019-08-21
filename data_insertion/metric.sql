@@ -38,4 +38,7 @@ VALUES
     (5, 'Tissues distributed for keratoplasty but not used'),
     (5, 'Tissues distributed for non-surgical use'),
     (5, 'Number of Active EDCs'),
-    (5, 'Transplants that were recovered as MLC cases');
+    (5, 'Transplants that were recovered as MLC cases'),
+
+    (6, 'Total Transplant Target'),
+    (6, 'Total HCRP Target');
